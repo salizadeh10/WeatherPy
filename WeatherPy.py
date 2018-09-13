@@ -14,7 +14,7 @@
 # #### Note
 # * Instructions have been included for each segment. You do not have to follow them exactly, but they are included to help you think through the steps.
 
-# In[161]:
+# In[195]:
 
 
 # Dependencies and Setup
@@ -43,7 +43,7 @@ lng_range = (-180, 180)
 
 # ## Generate Cities List
 
-# In[162]:
+# In[ ]:
 
 
 # List for holding lat_lngs and cities
@@ -67,7 +67,7 @@ for lat_lng in lat_lngs:
 len(cities)
 
 
-# In[163]:
+# In[ ]:
 
 
 # set up the url address
@@ -112,7 +112,7 @@ for city in cities:
         print("No information on " + city)
 
 
-# In[168]:
+# In[ ]:
 
 
 # create a data frame from cities, lat, and temp
@@ -132,10 +132,10 @@ weather_df = pd.DataFrame(weather_dict)
 weather_df.head()
 
 print("We have weather information on " + str(weather_df.shape[0]) + " cities")
-weather_df.head()
+weather_df.head(10)
 
 
-# In[172]:
+# In[ ]:
 
 
 # Save the data in csv file
@@ -143,7 +143,7 @@ weather_df.head()
 weather_df.to_csv("weather_data.csv", encoding="utf-8", index=False)
 
 
-# In[183]:
+# In[ ]:
 
 
 #  --------------  Latitude vs. Temperature Plot  --------------------
@@ -166,7 +166,7 @@ plt.savefig("City_Latitude_vs_Temperature.png")
 plt.show()
 
 
-# In[184]:
+# In[ ]:
 
 
 #  --------------  Latitude vs. Humidity Plot  --------------------
@@ -182,6 +182,7 @@ todays_date = dt.datetime.today().strftime("%m/%d/%Y")
 plt.title("City Latitude vs. Humidity (" + todays_date + ")")
 plt.xlabel("Latitude")
 plt.ylabel("Humidity (%)")
+plt.ylim(0, 110)
 plt.grid(True)
 
 # Save Figure
@@ -189,7 +190,7 @@ plt.savefig("City_Latitude_vs_Humidity.png")
 plt.show()
 
 
-# In[185]:
+# In[ ]:
 
 
 #  --------------  Latitude vs. Cloudiness Plot  --------------------
@@ -212,7 +213,7 @@ plt.savefig("City_Latitude_vs_Cloudiness.png")
 plt.show()
 
 
-# In[186]:
+# In[ ]:
 
 
 #  --------------  Latitude vs. Wind Speed Plot  --------------------
@@ -235,44 +236,9 @@ plt.savefig("City_Latitude_vs_Wind_Speed.png")
 plt.show()
 
 
-# ### Plotting the Data
-# * Use proper labeling of the plots using plot titles (including date of analysis) and axes labels.
-# * Save the plotted figures as .pngs.
-
-# #### Latitude vs. Temperature Plot
-
-# In[6]:
+# In[ ]:
 
 
-
-
-
-# #### Latitude vs. Humidity Plot
-
-# In[7]:
-
-
-
-
-
-# #### Latitude vs. Cloudiness Plot
-
-# In[8]:
-
-
-
-
-
-# #### Latitude vs. Wind Speed Plot
-
-# In[9]:
-
-
-
-
-
-# In[174]:
-
-
+# Convert to script
 get_ipython().system('jupyter nbconvert --to script WeatherPy.ipynb')
 
