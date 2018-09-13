@@ -143,10 +143,11 @@ weather_df.head()
 weather_df.to_csv("weather_data.csv", encoding="utf-8", index=False)
 
 
-# In[173]:
+# In[183]:
 
 
-#  Latitude vs. Temperature Plot
+#  --------------  Latitude vs. Temperature Plot  --------------------
+
 # x_axis ==> Latitude
 # y_axis ==> Max Temperature (F)
 
@@ -155,20 +156,82 @@ plt.scatter(weather_df['lat'], weather_df['max_temp'], edgecolors="black",
 
 # cosmatic stuff
 todays_date = dt.datetime.today().strftime("%m/%d/%Y")
-plt.title("City Latitude vs. Temperature " + todays_date)
+plt.title("City Latitude vs. Temperature (" + todays_date + ")")
 plt.xlabel("Latitude")
 plt.ylabel("Max Temperature (F)")
 plt.grid(True)
 
-#legend = plt.legend( scatterpoints=1, loc="best", title="City Types")
-#legend.legendHandles[0]._sizes = [40]
-#legend.legendHandles[1]._sizes = [40]
-#legend.legendHandles[2]._sizes = [40]
+# Save Figure
+plt.savefig("City_Latitude_vs_Temperature.png")
+plt.show()
 
-#plt.text(43, 30, 'Note:\nCircle size correlates with driver count per city.')
+
+# In[184]:
+
+
+#  --------------  Latitude vs. Humidity Plot  --------------------
+
+# x_axis ==> Latitude
+# y_axis ==> Humidity (%)
+
+plt.scatter(weather_df['lat'], weather_df['humidity'], edgecolors="black",
+            marker="o", alpha=0.7, facecolors="blue")
+
+# cosmatic stuff
+todays_date = dt.datetime.today().strftime("%m/%d/%Y")
+plt.title("City Latitude vs. Humidity (" + todays_date + ")")
+plt.xlabel("Latitude")
+plt.ylabel("Humidity (%)")
+plt.grid(True)
 
 # Save Figure
-plt.savefig("total_number_of_rides_for_city_type_scatter.png")
+plt.savefig("City_Latitude_vs_Humidity.png")
+plt.show()
+
+
+# In[185]:
+
+
+#  --------------  Latitude vs. Cloudiness Plot  --------------------
+
+# x_axis ==> Latitude
+# y_axis ==> Cloudiness (%)
+
+plt.scatter(weather_df['lat'], weather_df['cloudiness'], edgecolors="black",
+            marker="o", alpha=0.7, facecolors="blue")
+
+# cosmatic stuff
+todays_date = dt.datetime.today().strftime("%m/%d/%Y")
+plt.title("City Latitude vs. Cloudiness (" + todays_date + ")")
+plt.xlabel("Latitude")
+plt.ylabel("Cloudiness (%)")
+plt.grid(True)
+
+# Save Figure
+plt.savefig("City_Latitude_vs_Cloudiness.png")
+plt.show()
+
+
+# In[186]:
+
+
+#  --------------  Latitude vs. Wind Speed Plot  --------------------
+
+# x_axis ==> Latitude
+# y_axis ==> Wind Speed (%)
+
+plt.scatter(weather_df['lat'], weather_df['wind_speed'], edgecolors="black",
+            marker="o", alpha=0.7, facecolors="blue")
+
+# cosmatic stuff
+todays_date = dt.datetime.today().strftime("%m/%d/%Y")
+plt.title("City Latitude vs. Wind Speed (" + todays_date + ")")
+plt.xlabel("Latitude")
+plt.ylabel("Wind Speed (mph)")
+plt.grid(True)
+
+# Save Figure
+plt.savefig("City_Latitude_vs_Wind_Speed.png")
 plt.show()
 
 
@@ -208,7 +271,7 @@ plt.show()
 
 
 
-# In[138]:
+# In[174]:
 
 
 get_ipython().system('jupyter nbconvert --to script WeatherPy.ipynb')
